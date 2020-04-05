@@ -32,7 +32,7 @@ $(document).on("click", ".button", gifSearchStart);
 
 function gifSearchStart() {
     var gifForURL= $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+gifForURL+"&api_key=Tc1MZkuENFcgyA1xoYluJKJcKsIo1XdC&limit=10&rating=pg";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q="+gifForURL+"&api_key=Tc1MZkuENFcgyA1xoYluJKJcKsIo1XdC&limit=10&rating=pg";
 
 
     $.ajax({
