@@ -2,7 +2,7 @@
 var gifSearch = ["dog", "cat", "frog", "turtle"];
 
 function drawButtons() {
-	$("#button-area").empty();
+	$("#buttons-area").empty();
 
 	for (let i = 0; i < gifSearch.length; i++) {
 		var button = $("<button>");
@@ -15,3 +15,21 @@ function drawButtons() {
 
 drawButtons();
 
+$("#add-gif").on("click", function(event) {
+    event.preventDefault();
+    var gif = $("#gif-input").val().trim();
+    if (gif == "") {
+        console.log("empty")
+    }
+    else {
+    gifSearch.push(gif);
+    drawButtons();
+    }
+});
+
+$(document).on("click", ".button", gifSearchStart);
+
+function gifSearchStart() {
+    var gifForURL= $(this).attr("data-name");
+
+}
