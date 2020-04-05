@@ -18,7 +18,8 @@ drawButtons();
 $("#add-gif").on("click", function(event) {
     event.preventDefault();
     var gif = $("#gif-input").val().trim();
-    if (gif == "") {
+    $("#gif-input").val("")
+        if (gif == "") {
         console.log("empty")
     }
     else {
