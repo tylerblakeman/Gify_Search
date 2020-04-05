@@ -31,9 +31,9 @@ $(document).on("click", ".button", gifSearchStart);
 
 function gifSearchStart() {
     var gifForURL= $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=Tc1MZkuENFcgyA1xoYluJKJcKsIo1XdC&tag="+gifForURL;
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+gifForURL+"&api_key=Tc1MZkuENFcgyA1xoYluJKJcKsIo1XdC&limit=10&rating=pg";
 
-    for (let i = 0; i < 10; i++) {
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -41,15 +41,9 @@ function gifSearchStart() {
 
 
         .then(function(response){
-
-        
-                var imageURL = response.data.image_original_url;
-                var image = $("<img>")
-                
-                image.attr("src", imageURL);
-                image.attr("alt", gifForURL);
-                
-                $("#images").prepend(image);
+            console.log(response);
+            
             })
-        }
-}
+    
+
+};
