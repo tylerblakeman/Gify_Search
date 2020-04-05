@@ -1,6 +1,6 @@
 //recommended searches
 var gifSearch = ["dog", "cat", "frog", "turtle"];
-
+var queryResponse;
 function drawButtons() {
 	$("#buttons-area").empty();
 
@@ -41,9 +41,19 @@ function gifSearchStart() {
 
 
         .then(function(response){
-            console.log(response);
-            
-            })
-    
+            console.log(response.data);
+            var imagePush = "";
+            for (let i = 0; i < response.data.length; i++) {
+                var imageURL = JSON.stringify(response.data[i].images.fixed_width.url);
+                console.log(imageURL);
+                var image = (`<img src=`+imageURL+`>`)	
+                // image.attr("alt", gifForURL);	
+                // console.log("image variable"+image)
+                imagePush = imagePush+image;
+                }
 
+                $("#images").prepend(imagePush);   
+
+
+            });   
 };
